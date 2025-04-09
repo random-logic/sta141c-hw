@@ -139,12 +139,20 @@ data("Auto")
 lm_fit <- lm(mpg ~ horsepower, data = Auto)
 lm_summary <- summary(lm_fit)
 lm_summary
+
+# (a) iv. make prediction
+test_data <- data.frame(horsepower = 98)
+prediction <- predict(lm_fit, newdata = test_data)[1]
+
+# (a) iv. get the 95% confidence and prediction interval
+conf_interval <- predict(lm_fit, newdata = test_data, interval = "confidence")
+pred_interval <- predict(lm_fit, newdata = test_data, interval = "prediction")
 ```
 
 i. Yes, because $p << 0.001$, indicating there is a significant relationship between horsepower and mpg.
 ii. The $R^2$ value is around `r round(lm_summary$r.squared, 4)` which means that `r round(lm_summary$r.squared, 4) * 100`\% of variability in mpg is explained by horsepower.
 iii. The relationship is negative since the coefficient for horsepower is $`r round(lm_summary$coefficients["horsepower", "Estimate"], 4)` < 0$.
-iv. The prediction for 98hp is `r round(predict(lm_fit, newdata = data.frame(horsepower = 98))[1], 4)`mpg.
+iv. The prediction for 98hp is `r round(prediction, 4)`mpg. The 95\% confidence interval is $[`r round(conf_interval[2], 4)`, `r round(conf_interval[3], 4)`]$. The 95\% prediction interval is $[`r round(pred_interval[2], 4)`, `r round(pred_interval[3], 4)`]$.
 
 ### (b)
 ```{r}
