@@ -1,6 +1,6 @@
 # 1
 ### (a)
-Inflexible is best because simple models have enough data to learn the relationship with a large sample size. Also, inflexible methods can overfit with few predictors.
+Inflexible is best because simple models have enough data to learn the relationship with a large sample size. Also, flexible methods can overfit with few predictors.
 
 ### (b)
 Flexible is best because it can capture complex relationships with higher dimensional data. Inflexible models are likely to underfit the data given the small amount of data.
