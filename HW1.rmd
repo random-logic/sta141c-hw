@@ -36,11 +36,9 @@ $$RSS = \sum (Y_i - \hat Y_i)^2$$
 
 We are assuming that the data follows a polynomial relationship for all parts.
 
-TODO: idk if (a) is correct ??
-
-a. Generally, we would expect the training RSS of our cubic regression to be lower than our linear regression. Due to the randomness of $\epsilon$, the cubic regression will likely overfit and capture random noise as it is more flexible and has more polynomial terms. When $n$ is very large or the data is less noisy ($\epsilon$ has very low variance), overfitting is less of an issue, so we would expect the training RSS of our cubic regression to be similar to if not slightly lower than our linear regression. With less overfitting, we expect $\beta_2$ and $\beta_3$ to be close to 0 since the true relationship is linear, resulting in similar predictions between our cubic regression and linear regression.
-b. We would expect the testing RSS of our cubic regression to be higher than our linear regression. The cubic regression likely overfitted the training data, resulting in lower performance on testing data.
-c. If the true relationship is close to linear, then apply the answer from part (a). Otherwise, we would expect the training RSS of our cubic regression to be lower than our linear regression, because cubic regression is more flexible and has more polynomial terms.
+a. Generally, we would expect the training RSS of our cubic regression to appear lower than our linear regression, as it is more flexible and has more polynomial terms. Due to the randomness of $\epsilon$, the cubic regression will likely overfit and capture random noise when training, as the true relationship is linear.
+b. Because of overfitting, we expect the testing RSS of our cubic regression to be higher than our linear regression.
+c. If the data is close to linear, we apply the reason from part (a), and we expect the training RSS of our cubic regression to appear lower than the linear regression. If the data is far from linear, then cubic regression is likely a better fit, resulting in a lower training RSS than our linear regression.
 d. If the true relationship is close to linear, then apply the answer from part (b). However, if the true relationship is far from linear, then then we would expect test RSS of our cubic regression to be lower than our linear regression, as our linear regression likely underfitted the model.
 
 # 4
