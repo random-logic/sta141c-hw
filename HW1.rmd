@@ -121,7 +121,6 @@ R^2 = r^2.
 TODO: ?? Verify the proof is correct and figure out the tricks used.
 
 # 5
-TODO: ??
 ```{r}
 # Load required packages
 library(ISLR)
@@ -170,5 +169,7 @@ par(mfrow = c(2, 2))  # Show all 4 plots in one window
 plot(lm_fit)
 ```
 
-i. The residuals vs fitted shows that the errors are not white noise. The constant variance assumption is violated as there seems to be more residual variance for higher fitted values.
-ii. TODO: ??
+i. The residuals vs fitted shows that the errors are not white noise. The data exhibits a pattern, showing that there may be an uncaptured underlying relationship. Utilizing a more flexible model or transforming the data may help.
+ii. The data appears normal on the chart, as the points mostly corresopnd with the line. However, we cannot conclude normality without a formal test.
+iii. The constant variance assumption is violated as there appears to be more residual variance for higher fitted values.
+iv. It appears that some points above leverage $0.01$ may be more influential and skewing the regression. Data points with $|\text{standardized residual}| \geq 2$ may also skew the regression. Removing outliers may help.
