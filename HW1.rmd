@@ -1,24 +1,27 @@
-# 1
-### (a)
+# 1(a)
 Inflexible is best because simple models have enough data to learn the relationship with a large sample size. Also, flexible methods can overfit with few predictors.
 
-### (b)
+\newpage
+# 1(b)
 Flexible is best because it can capture complex relationships with higher dimensional data. Inflexible models are likely to underfit the data given the small amount of data.
 
-### (c)
+\newpage
+# 1(c)
 Flexible is best because it can capture non-linear relationships. Inflexible is too simple and will most likely underfit our data if it's non-linear.
 
-### (d)
+\newpage
+# 1(d)
 Inflexible is best because it generalizes noisy data with high variance. Flexible methods will likely overfit the data.
 
-# 2
-### (a)
+\newpage
+# 2(a)
 i. False, provided that the GPA is not high, college graduates can generally earn more than high school graduates on average, as their base salary is \$35k higher.
 ii. False, if the graduate's GPA is 4.0, our model predicts high school graduates will earn more than college graduates as the negative coefficient of the interaction effect between GPA and level outweighs the base salary boost of college graduates.
 iii. True, when the GPA is high enough, the negative coefficient of the interaction effect between GPA and level outweighs the base salary boost for college graduates, resulting in high school graduates earning more on average.
 iv. False, when the GPA is high enough, the negative coefficient of the interaction effect between GPA and level outweighs the base salary boost for college graduates, resulting in college graduates earning less on average.
 
-### (b)
+\newpage
+# 2(b)
 The model is as follows:
 $$\hat Y = 50 + 20X_1 + 0.07X_2 + 35X_3 + 0.01X_1X_2 - 10X_1X_3$$
 
@@ -26,24 +29,41 @@ Given our inputs:
 $$\hat Y = 50 + 20 * 4.0 + 0.07 * 110 + 35 + 0.01 * 4.0 * 110 - 10 * 4.0$$
 $$\hat Y = `r 50 + 20 * 4.0 + 0.07 * 110 + 35 + 0.01 * 4.0 * 110 - 10 * 4.0`$$
 
-### (c)
+\newpage
+# 2(c)
 False, although the coefficient for the interaction effect appears small, we cannot claim an interaction effect without conducting a statistical significance test.
 
-# 3
-The RSS formula is as follows:
+\newpage
+# 3(a)
+Generally, we would expect the training RSS of our cubic regression to appear lower than our linear regression, as it is more flexible and has more polynomial terms.
+
+\newpage
+# 3(b)
+Because of overfitting, we expect the testing RSS of our cubic regression to be higher than our linear regression. Our linear regression will have lower bias than the cubic regression.
+
+\newpage
+# 3(c)
+If the data is close to linear, we apply the reason from part (a), and we expect the training RSS of our cubic regression to appear lower than the linear regression. If the data is far from linear, then cubic regression is likely a better fit, resulting in a lower training RSS than our linear regression.
+
+Note - The RSS formula is as follows:
 
 $$RSS = \sum (Y_i - \hat Y_i)^2$$
 
 We are assuming that the data follows a polynomial relationship for all parts.
 
-a. Generally, we would expect the training RSS of our cubic regression to appear lower than our linear regression, as it is more flexible and has more polynomial terms.
-b. Because of overfitting, we expect the testing RSS of our cubic regression to be higher than our linear regression. Our linear regression will have lower bias than the cubic regression.
-c. If the data is close to linear, we apply the reason from part (a), and we expect the training RSS of our cubic regression to appear lower than the linear regression. If the data is far from linear, then cubic regression is likely a better fit, resulting in a lower training RSS than our linear regression.
-d. If the true relationship is close to linear, then apply the answer from part (b). However, if the true relationship is far from linear, then then we would expect test RSS of our cubic regression to be lower than our linear regression, as our linear regression likely underfitted the model. In this case, cubic regression wil have lower bias than linear regression.
+\newpage
+# 3(d)
+If the true relationship is close to linear, then apply the answer from part (b). However, if the true relationship is far from linear, then then we would expect test RSS of our cubic regression to be lower than our linear regression, as our linear regression likely underfitted the model. In this case, cubic regression wil have lower bias than linear regression.
 
+Note - The RSS formula is as follows:
+
+$$RSS = \sum (Y_i - \hat Y_i)^2$$
+
+We are assuming that the data follows a polynomial relationship for all parts.
+
+\newpage
 # 4
 Let:
-
 $$RSS = \sum_{i=1}^n (y_i - \hat y_i)^2$$
 $$TSS = \sum_{i=1}^n (y_i - \bar y)^2$$
 $$R^2 = \frac{TSS - RSS}{TSS} = 1 - \frac{RSS}{TSS}$$
@@ -67,7 +87,8 @@ $$R^2 = \frac{\frac{(\sum_{i = 1}^n (x_iy_i))^2}{\sum_{i = 1}^n x_i^2}}{\sum_{i=
 $$R^2 = \frac{\sum_{i = 1}^n (x_iy_i)^2}{{\sum_{i = 1}^n x_i^2}{\sum_{i = 1}^n y_i^2}}$$
 $$R^2 = Cor(X, Y)^2$$
 
-# 5
+\newpage
+# 5(a)
 ```{r}
 # Load required packages
 library(ISLR)
@@ -77,7 +98,6 @@ library(ggplot2)
 data("Auto")
 ```
 
-### (a)
 ```{r}
 # (a) Fit simple linear regression: mpg ~ horsepower
 lm_fit <- lm(mpg ~ horsepower, data = Auto)
@@ -98,7 +118,8 @@ ii. The $R^2$ value is around `r round(lm_summary$r.squared, 4)` which means tha
 iii. The relationship is negative since the coefficient for horsepower is $`r round(lm_summary$coefficients["horsepower", "Estimate"], 4)` < 0$.
 iv. The prediction for 98hp is `r round(prediction, 4)`mpg. The 95\% confidence interval is $[`r round(conf_interval[2], 4)`, `r round(conf_interval[3], 4)`]$. The 95\% prediction interval is $[`r round(pred_interval[2], 4)`, `r round(pred_interval[3], 4)`]$.
 
-### (b)
+\newpage
+# 5(b)
 ```{r}
 # (b) Scatterplot with regression line
 ggplot(Auto, aes(x = horsepower, y = mpg)) +
@@ -109,7 +130,8 @@ ggplot(Auto, aes(x = horsepower, y = mpg)) +
        y = "Miles Per Gallon (MPG)")
 ```
 
-### (c)
+\newpage
+# 5(c)
 ```{r}
 # (c) Diagnostic plots
 par(mfrow = c(2, 2))  # Show all 4 plots in one window
